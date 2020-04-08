@@ -1,2 +1,3 @@
 remove notes: node index.js remove --title="List"
 Add notes: node index.js add --title="List 1" --body="Need to learn node js"
+debug: node --inspect-brk index.js read --title="List 3"
