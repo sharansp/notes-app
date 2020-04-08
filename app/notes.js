@@ -1,7 +1,7 @@
 const fs = require("fs")
 const chalk = require("chalk")
 
-const addNote = function(title, body){
+const addNote = (title, body) => {
 
     const notes = loadNotes()
     const isDuplicateNote = notes.filter(note => note.title === title)
@@ -14,20 +14,20 @@ const addNote = function(title, body){
     }
 }
 
-const removeNote = function(title){
+const removeNote = (title) => {
 
     const notes = loadNotes()
     const updatedNotes = notes.filter(note => note.title !== title)
 
     if(notes.length>updatedNotes.length){
-        console.log(chalk.green.inverse(`Note ${title} Removed!`))
+        console.log(chalk.red.inverse(`Note ${title} Removed!`))
         saveNote(updatedNotes)
     }else{
         console.log(chalk.red.inverse(`Note ${title} Doesn't exists!`))
     }
 }
 
-const saveNote = function(notes){
+const saveNote = (notes) => {
     fs.writeFileSync('notes.json', JSON.stringify(notes))
 }
 const loadNotes = function(){
