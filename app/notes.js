@@ -27,6 +27,18 @@ const removeNote = (title) => {
     }
 }
 
+const readNote = (title) => {
+
+    const notes = loadNotes()
+    const notesToRead = notes.find(note => note.title == title)
+
+    if(notesToRead){
+        console.log(chalk.inverse(notesToRead.title+":\t"+notesToRead.body))
+    }else{
+        console.log(chalk.red.inverse(`Note ${title} Doesn't exists!`))
+    }
+}
+
 const saveNote = (notes) => {
     fs.writeFileSync('notes.json', JSON.stringify(notes))
 }
@@ -52,5 +64,6 @@ const loadNotes = function(){
 module.exports = {
     addNote,
     removeNote,
-    listNotes
+    listNotes,
+    readNote
 }
