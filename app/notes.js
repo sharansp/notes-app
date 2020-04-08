@@ -8,9 +8,9 @@ const addNote = function(title, body){
     if(isDuplicateNote.length == 0){
         notes.push({title, body})
         saveNote(notes)
-        console.log("New note added!")
+        console.log(chalk.green.inverse("New note added!"))
     }else{
-        console.log("Note title already exists!")
+        console.log(chalk.red.inverse("Note title already exists!"))
     }
 }
 
